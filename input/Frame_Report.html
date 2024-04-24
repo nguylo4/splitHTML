@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SWT_CC</title>
+    <script type="text/javascript">
+      function showTimestamp(timestamp){top.LogFile.showTimestamp(timestamp);}
+    </script>
+    <script type="text/javascript">
+      var EXPANDED = '[−]';
+      var COLLAPSED = '[+]';
+      var VISIBLE = 'Visible';
+      var HIDDEN = 'Hidden';
+      var NONE = 'none';
+      var BLOCK = '';
+      function getDivId(id) { return 'div_' + id; }
+      function getLinkId(id) { return 'lnk_' + id; }
+      function getTableId(id) { return 'tbl_' + id; }
+      function getTbl2Id(id) { return 'tbl_t' + id; }
+      
+      
+      function switchText(oldText) { return oldText == COLLAPSED ? EXPANDED : COLLAPSED ; }
+      function getStyleFromText(linkText) { return linkText == COLLAPSED ? HIDDEN : VISIBLE; }
+      
+      function getElements(tagName, elementId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        var len = elm.length;
+        for (var i = 0; i < len; i++) 
+        {
+          var id = elm[i].id;
+          if (id && id.indexOf(elementId) == 0)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;
+      }
+      function matchElements(tagName, matchId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        for (var i = 0; i < elm.length; i++) 
+        {
+          var id = elm[i].id;
+          var tc = id.replace(/s[0-9]+\./, "");
+          if (tc && tc == matchId)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;  
+      }
+      function onoff(elm, style)
+      {
+        if(elm.style.display == NONE)
+        {
+          if(style == null || style == VISIBLE)
+            elm.style.display = BLOCK;
+        }
+        else
+        {
+          if(style == null || style == HIDDEN)
+            elm.style.display = NONE;
+        }
+      }
+      function switchTagStyle(tag, id, style)
+      {
+        var divs = getElements(tag, id);
+        for(var i = 0; i < divs.length; i++)
+          onoff(divs[i], style);
+      }
+      function switchRowStyle(tbl, style)
+      {
+        var rows = tbl.rows.length;
+        for(var rowIndex=0; rowIndex < rows; rowIndex++)
+        {
+          var row = tbl.rows[rowIndex];
+          if (row.id != "on")
+            onoff(row, style);
+        }
+      }
+      function switchTableRowStyle(tableId, style)
+      {
+        var tables = getElements('table', tableId);
+        for(var i = 0; i < tables.length; i++)
+          switchRowStyle(tables[i], style);
+      }
+      function switchLinkText(linkId, newText)
+      {
+        var link = getElements('a', linkId);
+        var len = link.length;
+        for(var i = 0; i < len; i++)
+        {
+          var lnk = link[i];
+          if(newText == null)
+          {
+            var oldText = lnk.text;
+            newText = switchText(oldText)
+          }
+          lnk.text = newText;
+        }
+      }
+      function switchTag(tag, id, text)
+      {
+        var style = getStyleFromText(text);
+        switchTagStyle(tag, id, style);
+      }
+      function switchTable(id)
+      {
+        switchLinkText(getTableId(id));
+        switchTableRowStyle(getTableId(id));
+      }
+      function switchDiv(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+      }      
+      function switchAll(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+        var style = getStyleFromText(text);
+        switchTableRowStyle(getTbl2Id(id), style);
+      }
+      function showTable(id)
+      {
+        var tableId = getTableId(id);
+        switchLinkText(tableId, EXPANDED);
+        switchTableRowStyle(tableId, VISIBLE);
+      }
+      function hideTable(id)
+      {
+        var tableId = getTableId(id);
+        switchTableRowStyle(tableId, HIDDEN);
+        switchLinkText(tableId, COLLAPSED);
+      }
+      function showDiv(id)
+      {
+        switchLinkText(getLinkId(id), EXPANDED);
+        switchTag('div', getDivId(id), EXPANDED);
+      }
+      function showTC(id)
+      {
+        var divId = getDivId(id);
+        var elms = matchElements('div', divId); 
+        if(elms != null && elms.length > 0)
+        {
+          id = elms[0].id.replace(getDivId(''), '');
+          showDiv(id);
+        }
+      }
+      
+    </script>
+    <link rel="stylesheet" type="text/css" href="extendedNavigation.css">
+  </head>
+  <body>
+    <a name="TOP"></a>
+    <table class="HeadingTable">
+      <tr>
+        <td>
+          <big class="Heading1">Report: SWT_CC</big>
+        </td>
+      </tr>
+    </table>
+    <center>
+      <table class="OverallResultTable">
+        <tr>
+          <td class="NegativeResult">Test failed</td>
+        </tr>
+      </table>
+    </center>
+    <a name="GeneralTestInfo"></a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">General Test Information</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <div class="Heading4">System Under Test</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">SW Release: </td>
+            <td class="CellNoColor">RC_CUST_DAS_VW_02_SW_U136.01.01</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Target HW Version: </td>
+            <td class="CellNoColor">5G3 C0 sample</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Dataset: </td>
+            <td class="CellNoColor">DAS_VW_02_VW336_Tiguan_2ECU_E0</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Test Engineer</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">Windows Login Name: </td>
+            <td class="CellNoColor">LabDCDC01</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">SW Tester: </td>
+            <td class="CellNoColor">Nguyen XuanDung</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Test Setup</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">Version: </td>
+            <td class="CellNoColor">CANoe.CAN.Ethernet /pro 15.1.1 (SP1)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Configuration: </td>
+            <td class="CellNoColor">C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\RBS_Rear_VW_02_2DUTs.cfg</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database FASCANFD2 on FASCANFD2: </td>
+            <td class="CellNoColor">C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Databases\P01_MQBw_Baseline_V14.09.01F_AR430_20231108_ASIL_Merged_CR150_Adapt.arxml (2024-04-18 22:17:27)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database Ethernet on VEI: </td>
+            <td class="CellNoColor">C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Databases\DAS_PO_01_HellaDebugData_Decoding.arxml (2022-05-18 14:40:47)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of ID0_Func2: </td>
+            <td class="CellNoColor">BV_CloseRangeRadar3UDS, ODX:BV_CloseRangeRadar3UDS*C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Diagnostics\ECUS_NanoRadarHellaVW38X_001112_CanFD_d.pdx</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of ID0_Phys2: </td>
+            <td class="CellNoColor">EV_NR3HELLAVW38X_001, ODX:BV_CloseRangeRadar3UDS*C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Diagnostics\ECUS_NanoRadarHellaVW38X_001112_CanFD_d.pdx</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of ID1_Func2: </td>
+            <td class="CellNoColor">BV_CloseRangeRadar4UDS, ODX:BV_CloseRangeRadar4UDS*C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Diagnostics\ECUS_NanoRadarHellaVW38X_001112_CanFD_d.pdx</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of ID1_Phys2: </td>
+            <td class="CellNoColor">EV_NR4HELLAVW38X_001, ODX:BV_CloseRangeRadar4UDS*C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Diagnostics\ECUS_NanoRadarHellaVW38X_001112_CanFD_d.pdx</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Test Module Name: </td>
+            <td class="CellNoColor">SWT_CC</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Test Module File: </td>
+            <td class="CellNoColor">X:\ENG8\10_Debugger_Test\20_Scripts\SWT_CC.can</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Last modification of Test Module File: </td>
+            <td class="CellNoColor">2024-04-23, 10:16:09</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Windows Computer Name: </td>
+            <td class="CellNoColor">VND000021</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module AsrPDUIL: </td>
+            <td class="CellNoColor">CANoe AutoSAR PDU Interaction Layer NL (General OEM) Version 1.85.78 (Jun 24 2022 15:38:22) , C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Exec32\CANoe_14_0\Exec32\AsrPDUIL.dll</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module NMHigh: </td>
+            <td class="CellNoColor">NM-High (Version 3.1.19), C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Exec32\CANoe_14_0\Exec32\NMHigh.dll</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module J1939TestServiceLibraryNL: </td>
+            <td class="CellNoColor">J1939 Test Service Library for CANoe, Version 15.1.1.0, C:\Program Files\Vector CANoe 15\Exec32\J1939TestServiceLibraryNL.dll</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Hardware</div>
+      <div class="Indentation">
+        <div class="Heading4">CAN Channel Interfaces</div>
+        <div class="Indentation">
+          <table>
+            <tr>
+              <th class="TableHeadingCell">Channel</th>
+              <th class="TableHeadingCell">Device</th>
+              <th class="TableHeadingCell">Serial number</th>
+              <th class="TableHeadingCell">Driver DLL version</th>
+              <th class="TableHeadingCell">Driver version</th>
+            </tr>
+            <tr>
+              <td class="NumberCell">1</td>
+              <td class="NumberCell">Virtual CAN Bus</td>
+              <td class="NumberCell">100</td>
+              <td class="NumberCell">21.10.20</td>
+              <td class="NumberCell">21.10.20</td>
+            </tr>
+            <tr>
+              <td class="NumberCell">2</td>
+              <td class="NumberCell">VN5620</td>
+              <td class="NumberCell">5529</td>
+              <td class="NumberCell">21.10.20</td>
+              <td class="NumberCell">21.10.20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="Indentation">
+        <div class="Heading4">Ethernet Channel Interfaces</div>
+        <div class="Indentation">
+          <table>
+            <tr>
+              <th class="TableHeadingCell">Channel</th>
+              <th class="TableHeadingCell">Device</th>
+              <th class="TableHeadingCell">Serial number</th>
+              <th class="TableHeadingCell">Driver DLL version</th>
+              <th class="TableHeadingCell">Driver version</th>
+            </tr>
+            <tr>
+              <td class="NumberCell">1</td>
+              <td class="NumberCell">VN5620</td>
+              <td class="NumberCell">5529</td>
+              <td class="NumberCell">21.10.20</td>
+              <td class="NumberCell">21.10.20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <a name="TestOverview"></a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">Test Overview</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <table class="DefaultTable">
+        <tr>
+          <td style="padding-right: 0.5em;" class="CellNoColor">Test begin: </td>
+          <td style="padding-right: 0.5em;" class="CellNoColor">2024-04-24 09:01:14</td>
+          <td class="CellNoColor">(logging timestamp    4.661755)</td>
+        </tr>
+        <tr>
+          <td style="padding-right: 0.5em;" class="CellNoColor">Test end: </td>
+          <td style="padding-right: 0.5em;" class="CellNoColor">2024-04-24 09:05:34</td>
+          <td class="CellNoColor" nowrap>(logging timestamp  264.327755)</td>
+        </tr>
+      </table>
+      <div class="Heading4">Statistics</div>
+      <div class="Indentation">
+        <table class="OverviewTable">
+          <tr>
+            <td class="DefineCell">Overall number of test cases </td>
+            <td class="NumberCell" width="60">4</td>
+            <td class="DefaultCell"></td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Executed test cases </td>
+            <td class="NumberCell">4</td>
+            <td class="DefaultCell">100% of all test cases</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Not executed test cases </td>
+            <td class="NumberCell">0</td>
+            <td class="DefaultCell">0% of all test cases</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Test cases passed </td>
+            <td class="NumberCellPositiveResult">2</td>
+            <td class="NumberCellPositiveResult">50% of executed test cases</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Test cases failed </td>
+            <td class="NumberCellNegativeResult">2</td>
+            <td class="NumberCellNegativeResult">50% of executed test cases</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Test Case Results</div>
+      <div class="Indentation">
+        <table class="OverviewTable">
+          <tr>
+            <td class="DefineCell">
+              <b>1</b>
+            </td>
+            <td class="DefineCell">
+              <b></b>
+            </td>
+            <td class="DefineCell" colspan="2">
+              <a href="i__-1860796272_9tginfo.html">
+                <b>***Customization***</b>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="DefineCell">1.1</td>
+            <td class="DefaultCell">SwT_VW_02_5577</td>
+            <td class="DefaultCell">
+              <a href="i__-1860796272_13.html">Check if Cust_VBNNR_RS_Header_XIX_NR_RS_Failure_XIX_FASCANFD2InvalidDataError is set correctly</a>
+            </td>
+            <td class="NegativeResultCell">
+              <a href="i__-1860796272_13.html#i__-1860796272_169">fail</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="DefineCell">1.2</td>
+            <td class="DefaultCell">SwT_VW_02_10522</td>
+            <td class="DefaultCell">
+              <a href="i__-1860796272_1975.html">Check if The function 'DTC SuppressionCondition Determination (DSC)' shall Â«initialize the variable  'Cust_DSCTDiagStartTimerExtended'</a>
+            </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">1.3</td>
+            <td class="DefaultCell">SwT_VW_02_5485</td>
+            <td class="DefaultCell">
+              <a href="i__-1860796272_2501.html">Check that Cust_WAIMainUnit_01_XIX_FASCANFD2LostCommError is set correctly</a>
+            </td>
+            <td class="NegativeResultCell">
+              <a href="i__-1860796272_2501.html#i__-1860796272_2957">fail</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="DefineCell">1.4</td>
+            <td class="DefaultCell">SwT_VW_02_10415</td>
+            <td class="DefaultCell">
+              <a href="i__-1860796272_7117.html">Check if 'Cust_FICLaneUtilsNotAvailableError' with  'NotDetected' during init</a>
+            </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <a name="TestModuleInfo"></a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">Test Module Information</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <div class="Heading4">Contents</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="DefaultCell">1</td>
+            <td class="DefaultCell">
+              <a href="i__-1860796272_9tginfo.html">***Customization***</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

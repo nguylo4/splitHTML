@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Check if 'Cust_FICLaneUtilsNotAvailableError' with  'NotDetected' during init</title>
+    <script type="text/javascript">
+      function showTimestamp(timestamp){top.LogFile.showTimestamp(timestamp);}
+    </script>
+    <script type="text/javascript">
+      var EXPANDED = '[−]';
+      var COLLAPSED = '[+]';
+      var VISIBLE = 'Visible';
+      var HIDDEN = 'Hidden';
+      var NONE = 'none';
+      var BLOCK = '';
+      function getDivId(id) { return 'div_' + id; }
+      function getLinkId(id) { return 'lnk_' + id; }
+      function getTableId(id) { return 'tbl_' + id; }
+      function getTbl2Id(id) { return 'tbl_t' + id; }
+      
+      
+      function switchText(oldText) { return oldText == COLLAPSED ? EXPANDED : COLLAPSED ; }
+      function getStyleFromText(linkText) { return linkText == COLLAPSED ? HIDDEN : VISIBLE; }
+      
+      function getElements(tagName, elementId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        var len = elm.length;
+        for (var i = 0; i < len; i++) 
+        {
+          var id = elm[i].id;
+          if (id && id.indexOf(elementId) == 0)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;
+      }
+      function matchElements(tagName, matchId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        for (var i = 0; i < elm.length; i++) 
+        {
+          var id = elm[i].id;
+          var tc = id.replace(/s[0-9]+\./, "");
+          if (tc && tc == matchId)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;  
+      }
+      function onoff(elm, style)
+      {
+        if(elm.style.display == NONE)
+        {
+          if(style == null || style == VISIBLE)
+            elm.style.display = BLOCK;
+        }
+        else
+        {
+          if(style == null || style == HIDDEN)
+            elm.style.display = NONE;
+        }
+      }
+      function switchTagStyle(tag, id, style)
+      {
+        var divs = getElements(tag, id);
+        for(var i = 0; i < divs.length; i++)
+          onoff(divs[i], style);
+      }
+      function switchRowStyle(tbl, style)
+      {
+        var rows = tbl.rows.length;
+        for(var rowIndex=0; rowIndex < rows; rowIndex++)
+        {
+          var row = tbl.rows[rowIndex];
+          if (row.id != "on")
+            onoff(row, style);
+        }
+      }
+      function switchTableRowStyle(tableId, style)
+      {
+        var tables = getElements('table', tableId);
+        for(var i = 0; i < tables.length; i++)
+          switchRowStyle(tables[i], style);
+      }
+      function switchLinkText(linkId, newText)
+      {
+        var link = getElements('a', linkId);
+        var len = link.length;
+        for(var i = 0; i < len; i++)
+        {
+          var lnk = link[i];
+          if(newText == null)
+          {
+            var oldText = lnk.text;
+            newText = switchText(oldText)
+          }
+          lnk.text = newText;
+        }
+      }
+      function switchTag(tag, id, text)
+      {
+        var style = getStyleFromText(text);
+        switchTagStyle(tag, id, style);
+      }
+      function switchTable(id)
+      {
+        switchLinkText(getTableId(id));
+        switchTableRowStyle(getTableId(id));
+      }
+      function switchDiv(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+      }      
+      function switchAll(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+        var style = getStyleFromText(text);
+        switchTableRowStyle(getTbl2Id(id), style);
+      }
+      function showTable(id)
+      {
+        var tableId = getTableId(id);
+        switchLinkText(tableId, EXPANDED);
+        switchTableRowStyle(tableId, VISIBLE);
+      }
+      function hideTable(id)
+      {
+        var tableId = getTableId(id);
+        switchTableRowStyle(tableId, HIDDEN);
+        switchLinkText(tableId, COLLAPSED);
+      }
+      function showDiv(id)
+      {
+        switchLinkText(getLinkId(id), EXPANDED);
+        switchTag('div', getDivId(id), EXPANDED);
+      }
+      function showTC(id)
+      {
+        var divId = getDivId(id);
+        var elms = matchElements('div', divId); 
+        if(elms != null && elms.length > 0)
+        {
+          id = elms[0].id.replace(getDivId(''), '');
+          showDiv(id);
+        }
+      }
+      
+    </script>
+    <link rel="stylesheet" type="text/css" href="extendedNavigation.css">
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td class="UpCell">
+            <a href="i__-1860796272_9tginfo.html">Go up</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <tr>
+        <td class="TestcaseHeadingPositiveResult">
+          <big class="Heading3">1.4 <a name="i__-1860796272_7117">Test Case SwT_VW_02_10415: Check if 'Cust_FICLaneUtilsNotAvailableError' with  'NotDetected' during init</a>: Passed</big>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation" id="div_4">
+      <div class="Indentation">
+        <table class="DefaultTable">
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case begin: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2024-04-24 09:05:13</td>
+            <td class="CellNoColor">(logging timestamp  244.054755)</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case end: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2024-04-24 09:05:32</td>
+            <td class="CellNoColor" nowrap>(logging timestamp  263.305755)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Indentation"></div>
+      <table class="TestGroupHeadingBackground">
+        <tr>
+          <td>
+            <big class="Heading3">Main Part of Test Case</big>
+          </td>
+        </tr>
+      </table>
+      <div class="Indentation">
+        <table class="ResultTable">
+          <tr>
+            <th class="TableHeadingCell" width="1px">Timestamp</th>
+            <th class="TableHeadingCell" width="1px">Test Step</th>
+            <th class="TableHeadingCell" width="auto">Description</th>
+            <th class="TableHeadingCell" width="1px">Result</th>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 244.094755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=40ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 244.827755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=733ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 244.094755</td>
+            <td class="NumberCell">374</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 244.827755</td>
+            <td class="NumberCell">375</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 244.827755</td>
+            <td class="NumberCell">376</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 245.827755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 245.920755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=93ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 245.920755</td>
+            <td class="NumberCell">377</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 245.920755</td>
+            <td class="NumberCell">378</td>
+            <td class="DefaultCell">Description --- <br>Wait for 7000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.920755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=7000ms (max=7000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.920755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ------------------------------------CASE 1------------------------------------</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.932755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=12ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.932755</td>
+            <td class="NumberCell">379</td>
+            <td class="DefaultCell"> The value of the variable Rte_SensorId_SensorId_SensorId will be read out.</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.932755</td>
+            <td class="NumberCell">380</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.950755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=18ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.950755</td>
+            <td class="NumberCell">381</td>
+            <td class="DefaultCell"> Read out variable "Rte_SensorId_SensorId_SensorId"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.950755</td>
+            <td class="NumberCell">382</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.950755</td>
+            <td class="NumberCell">383</td>
+            <td class="DefaultCell"> Check if variable Rte_SensorId_SensorId_SensorId == 00000001 (0x1) --&gt; Check successful, read 00000001 (0x1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 252.950755</td>
+            <td class="NumberCell"></td>
+            <td class="DefaultCell">correct value and behavior</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 253.010755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=60ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 254.087755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=1077ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 253.010755</td>
+            <td class="NumberCell">384</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 254.087755</td>
+            <td class="NumberCell">385</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 254.087755</td>
+            <td class="NumberCell">386</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 255.087755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 255.175755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=88ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 255.175755</td>
+            <td class="NumberCell">387</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 255.175755</td>
+            <td class="NumberCell">388</td>
+            <td class="DefaultCell">Description --- <br>Wait for 3000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 258.175755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=3000ms (max=3000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 258.219755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=44ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 259.215755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=996ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 258.219755</td>
+            <td class="NumberCell">389</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 259.215755</td>
+            <td class="NumberCell">390</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 259.215755</td>
+            <td class="NumberCell">391</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 260.215755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 260.305755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=90ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 260.305755</td>
+            <td class="NumberCell">392</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 260.305755</td>
+            <td class="NumberCell">393</td>
+            <td class="DefaultCell">Description --- <br>Wait for 3000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 263.305755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=3000ms (max=3000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

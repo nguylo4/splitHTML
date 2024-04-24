@@ -1,0 +1,3915 @@
+<style>
+      
+       
+      
+      @media screen
+      {
+        body
+        {
+          background-color: rgb(255, 255, 255);
+          font-family:      arial, verdana, trebuchet, officina, sans-serif;
+        }
+      }
+  
+      
+      @media print
+      {
+        
+        body
+        {
+          background-color: rgb(255, 255, 255);
+          font-family:      arial, verdana, trebuchet, officina, sans-serif;
+        }
+        
+        
+        a
+        {
+          text-decoration: none;
+        }
+        
+        
+        .HeadingTable, .SubHeadingTable, .GroupHeadingTable , .GroupEndTable
+        {
+          border-width: 2px;
+          border-style: solid;
+          border-color: rgb(150,150,150);
+        }
+        
+        .ResultBlockHeading
+        {
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(150,150,150);
+        }
+        
+        table.ResultTable, table.OverviewTable, table.CheckStatisticsTable
+        {
+          border-collapse: collapse;
+        }
+        
+        td.DefaultCell, td.DefineCell, td.NumberCell, td.NumberCellPositiveResult, td.NumberCellNegativeResult, 
+        td.NumberCellErrorResult, td.NumberCellInconclusiveResult, td.NumberCellNoneResult, td.NumberCellNoColor,
+        td.PositiveResultCell, td.NegativeResultCell, td.WarningCell, td.NoneResultCell, td.InconclusiveResultCell,
+        td.ErrorResultCell, th.TableHeadingCell
+        {
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(150,150,150);
+        }
+        
+        .PatternSeparator
+        {
+          
+          border-style: none;
+        }
+        
+        .PositiveResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .NegativeResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .NoneResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .InconclusiveResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .ErrorResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+
+        
+        .TestcaseHeadingDefaultResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .TestcaseHeadingPositiveResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .TestcaseHeadingNegativeResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        table.ScreenOnly, a.Undecorated, .LinkCell
+        {
+          display: none;
+        }
+      }
+      
+      a.Undecorated:hover 
+      {
+        color:red;
+      }
+      a.Undecorated
+      { 
+        text-decoration: none; 
+      }
+      
+      .NavStyle
+      {
+        background-color: rgb(220, 221, 222);
+      }
+      
+      td.LinkCell, td.UpCell
+      {
+        
+        width:              1px;
+        white-space:        nowrap;
+      }
+
+      
+      table
+      {
+        margin-bottom:    10px;
+        vertical-align:   top; 
+        border:           0;
+        border-spacing:   1px;
+        padding:          2px;
+      }
+      table.ScreenOnly
+      {
+        vertical-align: top; 
+        margin-bottom:  10px;
+      }
+      .NoMarginBottom
+      {
+        margin-bottom:    0px;
+      }
+      .HeadingTable
+      {
+        width:            100%;
+        text-align:       center;
+        margin-top:       15px;
+        margin-bottom:    30px;
+        margin-left:      auto;
+        margin-right:     auto;
+        background-color: rgb(220, 221, 222);
+      }
+      
+      .SubHeadingTable
+      {
+        width:            100%;
+        text-align:       center;
+        margin-top:       15px;
+        margin-bottom:    25px;
+        background-color: rgb(220, 221, 222);
+      }
+      
+      .GroupHeadingTable, .GroupEndTable
+      {
+        width:            100%;
+        text-align:       center;
+        margin-top:       15px;
+        padding-right:    20px;
+        background-color: rgb(220, 221, 222);
+      }
+      
+      .DefaultTable
+      {
+        padding:        0px;
+        border-spacing: 0px;
+      }
+      
+      .CheckStatisticsTable
+      {
+        margin-bottom: 8px;
+        padding-right:  20px;
+      }
+  
+      .OverviewTable
+      {
+        text-align:     left;
+      }
+      
+      .OverviewResultTable
+      {
+        width:          100%;
+        margin-bottom:  0px;
+        border-spacing: 0px;
+        padding:        0px;
+        text-align:     center;
+      }
+      
+      .ResultTable
+      {
+        width:          100%;
+        text-align:     left;
+        padding-right:  20px;
+      }
+      
+      .ResultTableInner
+      {
+        width:          100%;
+        text-align:     left;
+        padding-right:  0px;
+      }
+  
+      table.ResultTable td, table.ChildLinkTable td
+      {
+        vertical-align: top;
+      }
+      .ChildLinkTable
+      {
+        width:          1px;
+        text-align:     left;
+      }
+      .InfoTable
+      {
+        text-align:     left;
+        padding-right:  0px;
+        margin-bottom:  0px;
+        border-spacing: 0px;
+      }
+      .InfoTableExpand
+      {
+        width:          100%;
+        text-align:     left;
+        padding-right:  0px;
+        margin-bottom:  0px;
+        border-spacing: 0px;
+      }
+      .OverallResultTable
+      {
+        width:         50%;
+        text-align:    center;
+        margin-bottom: 20px;
+        margin-left:   auto;
+        margin-right:  auto;
+        font-weight:   bold;
+      }
+      
+      .TableHeadingCell
+      {
+        background-color: rgb(179, 179, 179);
+        font-family:      arial, verdana, trebuchet, officina, sans-serif;
+        font-weight:      bold;
+        text-align:       center;
+      }
+  
+      .CellNoColor
+      {
+        text-align:     left;
+        vertical-align: top;
+      }   
+      
+      .DefineCell
+      {
+        background-color: rgb(179, 179, 179);
+        text-align:       left;
+      }
+      
+      .DefaultCell, .DefaultCellBold
+      {
+        background-color: rgb(229, 229, 229);
+        text-align:       left;
+      }
+      
+      .DefaultCellBold
+      {
+        font-weight:      bold;
+      }
+        
+      .NumberCell
+      {
+        background-color: rgb(229, 229, 229);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellNegativeResult
+      {
+        background-color: rgb(240, 0, 0);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellPositiveResult
+      {
+        background-color: rgb(25, 165, 88);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellNoneResult
+      {
+        background-color: rgb(105, 105, 105);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellInconclusiveResult
+      {
+        background-color: rgb(255, 165, 0);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellErrorResult
+      {
+        background-color: rgb(205, 0, 0);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellNoColor
+      {        
+        text-align: center;
+      }
+      
+      .PositiveResultCell
+      {
+        background-color: rgb(25, 165, 88);
+      }
+    
+      .NegativeResultCell
+      {
+        background-color: rgb(240, 0, 0);
+      }
+      
+      .NoneResultCell
+      {
+        background-color: rgb(105, 105, 105);
+      }
+      
+      .InconclusiveResultCell
+      {
+        background-color: rgb(255, 165, 0);
+      }
+      
+      .ErrorResultCell
+      {
+        background-color: rgb(205, 0, 0);
+        white-space:        nowrap;
+      }
+
+      .WarningCell
+      {
+        background-color: rgb(255, 255, 0);
+      }
+
+      .TestcaseHeadingDefaultResult
+      {
+        background-color: rgb(179, 179, 179);
+      }
+      .TestcaseHeadingPositiveResult
+      {
+        background-color: rgb(25, 165, 88);
+      }      
+      .TestcaseHeadingNegativeResult
+      {
+        background-color: rgb(240, 0, 0);
+      }      
+      .TestcaseHeadingNoneResult
+      {
+        background-color: rgb(105, 105, 105);
+      }
+      .TestcaseHeadingInconclusiveResult
+      {
+        background-color: rgb(255, 165, 0);
+      }
+      .TestcaseHeadingErrorResult
+      {
+        background-color: rgb(205, 0, 0);
+      }
+      
+      .PatternSeparator
+      {
+        height: 0.2em;
+      }
+      
+      .NegativeResult
+      {
+        background-color: rgb(240, 0, 0);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      .PositiveResult
+      {
+        background-color: rgb(25, 165, 88);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      .NoneResult
+      {
+        background-color: rgb(105, 105, 105);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      .InconclusiveResult
+      {
+        background-color: rgb(255, 165, 0);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      .ErrorResult
+      {
+        background-color: rgb(205, 0, 0);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      
+      
+      
+      .Heading1
+      {
+        font-family: arial, sans-serif;
+        font-weight: bold;
+        font-size:   26px;
+      }
+      
+      .Heading2
+      {
+        font-family: arial, sans-serif;
+        font-weight: bold;
+        font-size:   20px;
+      }
+      
+      .Heading3
+      {
+        font-family:   arial, sans-serif;
+        font-weight:   bold;
+        font-size:     18px;
+        margin-bottom: 20px;
+        margin-top:    20px;
+      }
+      
+      .Heading4
+      {
+        font-family:   arial, sans-serif;
+        font-weight:   bold;
+        font-size:     16px;
+        margin-top:    10px;
+        margin-bottom: 10px;
+      }
+      
+      
+      img
+      {
+        Margin-bottom: 10px;
+        Margin-right:  10px;
+      }
+      
+      
+      p
+      {
+        Margin-bottom: 20px;
+      }
+      
+      
+      .DefaultTableBackground
+      {
+        background-color: rgb(229, 229, 229);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .NegativeResultBackground
+      {
+        background-color: rgb(240, 0, 0);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .PositiveResultBackground
+      {
+        background-color: rgb(25, 165, 88);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .WarningResultBackground
+      {
+        background-color: rgb(255, 255, 0);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .NoneResultBackground
+      {
+        background-color: rgb(105, 105, 105);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .InconclusiveResultBackground
+      {
+        background-color: rgb(255, 165, 0);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .ErrorResultBackground
+      {
+        background-color: rgb(205, 0, 0);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .TestGroupHeadingBackground
+      {
+        background-color: rgb(179, 179, 179);
+      }
+    
+      
+      .Indentation
+      {
+        margin-left:  20px;
+      }
+    </style>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SWT_CC</title>
+    <script type="text/javascript">
+      function showTimestamp(timestamp){top.LogFile.showTimestamp(timestamp);}
+    </script>
+    <script type="text/javascript">
+      var EXPANDED = '[−]';
+      var COLLAPSED = '[+]';
+      var VISIBLE = 'Visible';
+      var HIDDEN = 'Hidden';
+      var NONE = 'none';
+      var BLOCK = '';
+      function getDivId(id) { return 'div_' + id; }
+      function getLinkId(id) { return 'lnk_' + id; }
+      function getTableId(id) { return 'tbl_' + id; }
+      function getTbl2Id(id) { return 'tbl_t' + id; }
+      
+      
+      function switchText(oldText) { return oldText == COLLAPSED ? EXPANDED : COLLAPSED ; }
+      function getStyleFromText(linkText) { return linkText == COLLAPSED ? HIDDEN : VISIBLE; }
+      
+      function getElements(tagName, elementId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        var len = elm.length;
+        for (var i = 0; i < len; i++) 
+        {
+          var id = elm[i].id;
+          if (id && id.indexOf(elementId) == 0)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;
+      }
+      function matchElements(tagName, matchId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        for (var i = 0; i < elm.length; i++) 
+        {
+          var id = elm[i].id;
+          var tc = id.replace(/s[0-9]+\./, "");
+          if (tc && tc == matchId)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;  
+      }
+      function onoff(elm, style)
+      {
+        if(elm.style.display == NONE)
+        {
+          if(style == null || style == VISIBLE)
+            elm.style.display = BLOCK;
+        }
+        else
+        {
+          if(style == null || style == HIDDEN)
+            elm.style.display = NONE;
+        }
+      }
+      function switchTagStyle(tag, id, style)
+      {
+        var divs = getElements(tag, id);
+        for(var i = 0; i < divs.length; i++)
+          onoff(divs[i], style);
+      }
+      function switchRowStyle(tbl, style)
+      {
+        var rows = tbl.rows.length;
+        for(var rowIndex=0; rowIndex < rows; rowIndex++)
+        {
+          var row = tbl.rows[rowIndex];
+          if (row.id != "on")
+            onoff(row, style);
+        }
+      }
+      function switchTableRowStyle(tableId, style)
+      {
+        var tables = getElements('table', tableId);
+        for(var i = 0; i < tables.length; i++)
+          switchRowStyle(tables[i], style);
+      }
+      function switchLinkText(linkId, newText)
+      {
+        var link = getElements('a', linkId);
+        var len = link.length;
+        for(var i = 0; i < len; i++)
+        {
+          var lnk = link[i];
+          if(newText == null)
+          {
+            var oldText = lnk.text;
+            newText = switchText(oldText)
+          }
+          lnk.text = newText;
+        }
+      }
+      function switchTag(tag, id, text)
+      {
+        var style = getStyleFromText(text);
+        switchTagStyle(tag, id, style);
+      }
+      function switchTable(id)
+      {
+        switchLinkText(getTableId(id));
+        switchTableRowStyle(getTableId(id));
+      }
+      function switchDiv(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+      }      
+      function switchAll(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+        var style = getStyleFromText(text);
+        switchTableRowStyle(getTbl2Id(id), style);
+      }
+      function showTable(id)
+      {
+        var tableId = getTableId(id);
+        switchLinkText(tableId, EXPANDED);
+        switchTableRowStyle(tableId, VISIBLE);
+      }
+      function hideTable(id)
+      {
+        var tableId = getTableId(id);
+        switchTableRowStyle(tableId, HIDDEN);
+        switchLinkText(tableId, COLLAPSED);
+      }
+      function showDiv(id)
+      {
+        switchLinkText(getLinkId(id), EXPANDED);
+        switchTag('div', getDivId(id), EXPANDED);
+      }
+      function showTC(id)
+      {
+        var divId = getDivId(id);
+        var elms = matchElements('div', divId); 
+        if(elms != null && elms.length > 0)
+        {
+          id = elms[0].id.replace(getDivId(''), '');
+          showDiv(id);
+        }
+      }
+      
+    </script>
+    <link rel="stylesheet" type="text/css" href="extendedNavigation.css">
+  </head>
+  <body>
+        
+        <a name="TOP"></a>
+            <table class="HeadingTable">
+            <tr>
+                <td>
+                <big class="Heading1">Report: SWT_CC</big>
+                </td>
+            </tr>
+            </table>
+            <center>
+            <table class="OverallResultTable">
+                <tr>
+                <td class="NegativeResult">Test failed</td>
+                </tr>
+            </table>
+            </center>
+            <a name="GeneralTestInfo"></a>
+                    
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">General Test Information</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <div class="Heading4">System Under Test</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">SW Release: </td>
+            <td class="CellNoColor">RC_CUST_DAS_VW_02_SW_U136.01.01</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Target HW Version: </td>
+            <td class="CellNoColor">5G3 C0 sample</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Dataset: </td>
+            <td class="CellNoColor">DAS_VW_02_VW336_Tiguan_2ECU_E0</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Test Engineer</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">Windows Login Name: </td>
+            <td class="CellNoColor">LabDCDC01</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">SW Tester: </td>
+            <td class="CellNoColor">Nguyen XuanDung</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Test Setup</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">Version: </td>
+            <td class="CellNoColor">CANoe.CAN.Ethernet /pro 15.1.1 (SP1)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Configuration: </td>
+            <td class="CellNoColor">C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\RBS_Rear_VW_02_2DUTs.cfg</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database FASCANFD2 on FASCANFD2: </td>
+            <td class="CellNoColor">C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Databases\P01_MQBw_Baseline_V14.09.01F_AR430_20231108_ASIL_Merged_CR150_Adapt.arxml (2024-04-18 22:17:27)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database Ethernet on VEI: </td>
+            <td class="CellNoColor">C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Databases\DAS_PO_01_HellaDebugData_Decoding.arxml (2022-05-18 14:40:47)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of ID0_Func2: </td>
+            <td class="CellNoColor">BV_CloseRangeRadar3UDS, ODX:BV_CloseRangeRadar3UDS*C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Diagnostics\ECUS_NanoRadarHellaVW38X_001112_CanFD_d.pdx</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of ID0_Phys2: </td>
+            <td class="CellNoColor">EV_NR3HELLAVW38X_001, ODX:BV_CloseRangeRadar3UDS*C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Diagnostics\ECUS_NanoRadarHellaVW38X_001112_CanFD_d.pdx</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of ID1_Func2: </td>
+            <td class="CellNoColor">BV_CloseRangeRadar4UDS, ODX:BV_CloseRangeRadar4UDS*C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Diagnostics\ECUS_NanoRadarHellaVW38X_001112_CanFD_d.pdx</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of ID1_Phys2: </td>
+            <td class="CellNoColor">EV_NR4HELLAVW38X_001, ODX:BV_CloseRangeRadar4UDS*C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Diagnostics\ECUS_NanoRadarHellaVW38X_001112_CanFD_d.pdx</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Test Module Name: </td>
+            <td class="CellNoColor">SWT_CC</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Test Module File: </td>
+            <td class="CellNoColor">X:\ENG8\10_Debugger_Test\20_Scripts\SWT_CC.can</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Last modification of Test Module File: </td>
+            <td class="CellNoColor">2024-04-23, 10:16:09</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Windows Computer Name: </td>
+            <td class="CellNoColor">VND000021</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module AsrPDUIL: </td>
+            <td class="CellNoColor">CANoe AutoSAR PDU Interaction Layer NL (General OEM) Version 1.85.78 (Jun 24 2022 15:38:22) , C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Exec32\CANoe_14_0\Exec32\AsrPDUIL.dll</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module NMHigh: </td>
+            <td class="CellNoColor">NM-High (Version 3.1.19), C:\Data\DAS\VW_02\automation\ENG8\10_Debugger_Test\RBS_U136\RBS_Rear\Exec32\CANoe_14_0\Exec32\NMHigh.dll</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module J1939TestServiceLibraryNL: </td>
+            <td class="CellNoColor">J1939 Test Service Library for CANoe, Version 15.1.1.0, C:\Program Files\Vector CANoe 15\Exec32\J1939TestServiceLibraryNL.dll</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Hardware</div>
+      <div class="Indentation">
+        <div class="Heading4">CAN Channel Interfaces</div>
+        <div class="Indentation">
+          <table>
+            <tr>
+              <th class="TableHeadingCell">Channel</th>
+              <th class="TableHeadingCell">Device</th>
+              <th class="TableHeadingCell">Serial number</th>
+              <th class="TableHeadingCell">Driver DLL version</th>
+              <th class="TableHeadingCell">Driver version</th>
+            </tr>
+            <tr>
+              <td class="NumberCell">1</td>
+              <td class="NumberCell">Virtual CAN Bus</td>
+              <td class="NumberCell">100</td>
+              <td class="NumberCell">21.10.20</td>
+              <td class="NumberCell">21.10.20</td>
+            </tr>
+            <tr>
+              <td class="NumberCell">2</td>
+              <td class="NumberCell">VN5620</td>
+              <td class="NumberCell">5529</td>
+              <td class="NumberCell">21.10.20</td>
+              <td class="NumberCell">21.10.20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="Indentation">
+        <div class="Heading4">Ethernet Channel Interfaces</div>
+        <div class="Indentation">
+          <table>
+            <tr>
+              <th class="TableHeadingCell">Channel</th>
+              <th class="TableHeadingCell">Device</th>
+              <th class="TableHeadingCell">Serial number</th>
+              <th class="TableHeadingCell">Driver DLL version</th>
+              <th class="TableHeadingCell">Driver version</th>
+            </tr>
+            <tr>
+              <td class="NumberCell">1</td>
+              <td class="NumberCell">VN5620</td>
+              <td class="NumberCell">5529</td>
+              <td class="NumberCell">21.10.20</td>
+              <td class="NumberCell">21.10.20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    </a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">Test Module Information</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <div class="Heading4">Contents</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="DefaultCell">1</td>
+            <td class="DefaultCell">
+              <a href="i__-1860796272_9tginfo.html">***Customization***</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Check that Cust_WAIMainUnit_01_XIX_FASCANFD2LostCommError is set correctly</title>
+    <script type="text/javascript">
+      function showTimestamp(timestamp){top.LogFile.showTimestamp(timestamp);}
+    </script>
+    <script type="text/javascript">
+      var EXPANDED = '[−]';
+      var COLLAPSED = '[+]';
+      var VISIBLE = 'Visible';
+      var HIDDEN = 'Hidden';
+      var NONE = 'none';
+      var BLOCK = '';
+      function getDivId(id) { return 'div_' + id; }
+      function getLinkId(id) { return 'lnk_' + id; }
+      function getTableId(id) { return 'tbl_' + id; }
+      function getTbl2Id(id) { return 'tbl_t' + id; }
+      
+      
+      function switchText(oldText) { return oldText == COLLAPSED ? EXPANDED : COLLAPSED ; }
+      function getStyleFromText(linkText) { return linkText == COLLAPSED ? HIDDEN : VISIBLE; }
+      
+      function getElements(tagName, elementId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        var len = elm.length;
+        for (var i = 0; i < len; i++) 
+        {
+          var id = elm[i].id;
+          if (id && id.indexOf(elementId) == 0)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;
+      }
+      function matchElements(tagName, matchId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        for (var i = 0; i < elm.length; i++) 
+        {
+          var id = elm[i].id;
+          var tc = id.replace(/s[0-9]+\./, "");
+          if (tc && tc == matchId)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;  
+      }
+      function onoff(elm, style)
+      {
+        if(elm.style.display == NONE)
+        {
+          if(style == null || style == VISIBLE)
+            elm.style.display = BLOCK;
+        }
+        else
+        {
+          if(style == null || style == HIDDEN)
+            elm.style.display = NONE;
+        }
+      }
+      function switchTagStyle(tag, id, style)
+      {
+        var divs = getElements(tag, id);
+        for(var i = 0; i < divs.length; i++)
+          onoff(divs[i], style);
+      }
+      function switchRowStyle(tbl, style)
+      {
+        var rows = tbl.rows.length;
+        for(var rowIndex=0; rowIndex < rows; rowIndex++)
+        {
+          var row = tbl.rows[rowIndex];
+          if (row.id != "on")
+            onoff(row, style);
+        }
+      }
+      function switchTableRowStyle(tableId, style)
+      {
+        var tables = getElements('table', tableId);
+        for(var i = 0; i < tables.length; i++)
+          switchRowStyle(tables[i], style);
+      }
+      function switchLinkText(linkId, newText)
+      {
+        var link = getElements('a', linkId);
+        var len = link.length;
+        for(var i = 0; i < len; i++)
+        {
+          var lnk = link[i];
+          if(newText == null)
+          {
+            var oldText = lnk.text;
+            newText = switchText(oldText)
+          }
+          lnk.text = newText;
+        }
+      }
+      function switchTag(tag, id, text)
+      {
+        var style = getStyleFromText(text);
+        switchTagStyle(tag, id, style);
+      }
+      function switchTable(id)
+      {
+        switchLinkText(getTableId(id));
+        switchTableRowStyle(getTableId(id));
+      }
+      function switchDiv(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+      }      
+      function switchAll(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+        var style = getStyleFromText(text);
+        switchTableRowStyle(getTbl2Id(id), style);
+      }
+      function showTable(id)
+      {
+        var tableId = getTableId(id);
+        switchLinkText(tableId, EXPANDED);
+        switchTableRowStyle(tableId, VISIBLE);
+      }
+      function hideTable(id)
+      {
+        var tableId = getTableId(id);
+        switchTableRowStyle(tableId, HIDDEN);
+        switchLinkText(tableId, COLLAPSED);
+      }
+      function showDiv(id)
+      {
+        switchLinkText(getLinkId(id), EXPANDED);
+        switchTag('div', getDivId(id), EXPANDED);
+      }
+      function showTC(id)
+      {
+        var divId = getDivId(id);
+        var elms = matchElements('div', divId); 
+        if(elms != null && elms.length > 0)
+        {
+          id = elms[0].id.replace(getDivId(''), '');
+          showDiv(id);
+        }
+      }
+      
+    </script>
+    <link rel="stylesheet" type="text/css" href="extendedNavigation.css">
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td class="UpCell">
+            <a href="i__-1860796272_9tginfo.html">Go up</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <tr>
+        <td class="TestcaseHeadingNegativeResult">
+          <big class="Heading3">1.3 <a name="i__-1860796272_2501">Test Case SwT_VW_02_5485: Check that Cust_WAIMainUnit_01_XIX_FASCANFD2LostCommError is set correctly</a>: Failed</big>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation" id="div_3">
+      <div class="Indentation">
+        <table class="DefaultTable">
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case begin: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2024-04-24 09:02:50</td>
+            <td class="CellNoColor">(logging timestamp  100.607755)</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case end: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2024-04-24 09:05:13</td>
+            <td class="CellNoColor" nowrap>(logging timestamp  244.054755)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Indentation"></div>
+      <table class="TestGroupHeadingBackground">
+        <tr>
+          <td>
+            <big class="Heading3">Main Part of Test Case</big>
+          </td>
+        </tr>
+      </table>
+      <div class="Indentation">
+        <table class="ResultTable">
+          <tr>
+            <th class="TableHeadingCell" width="1px">Timestamp</th>
+            <th class="TableHeadingCell" width="1px">Test Step</th>
+            <th class="TableHeadingCell" width="auto">Description</th>
+            <th class="TableHeadingCell" width="1px">Result</th>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 100.647755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=40ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 101.371755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=724ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 100.647755</td>
+            <td class="NumberCell">124</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 101.371755</td>
+            <td class="NumberCell">125</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 101.371755</td>
+            <td class="NumberCell">126</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 102.371755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 102.455755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=84ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 102.455755</td>
+            <td class="NumberCell">127</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 102.455755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Systeminfo_01_XIX_FASCANFD2/SI_NWDF_XIX_Systeminfo_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 102.455755</td>
+            <td class="NumberCell">128</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 107.455755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 107.469755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=14ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 107.469755</td>
+            <td class="NumberCell">129</td>
+            <td class="DefaultCell"> The value of the variable Rte_SensorId_SensorId_SensorId will be read out.</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 107.469755</td>
+            <td class="NumberCell">130</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 107.469755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ------------------------------------CASE 1------------------------------------</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 107.469755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 107.469755</td>
+            <td class="NumberCell">131</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 108.469755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 108.469755</td>
+            <td class="NumberCell">132</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.469755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.497755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=28ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.754755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=257ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.497755</td>
+            <td class="NumberCell">133</td>
+            <td class="DefaultCell"> Breakpoint will be set in function Frame_Rx_MainUnit_01_FD_02_Process in source line:<br>CodingData_pst = WaAstechCust_GetCodingData()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.754755</td>
+            <td class="NumberCell">134</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.754755</td>
+            <td class="NumberCell">135</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.769755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.784755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.769755</td>
+            <td class="NumberCell">136</td>
+            <td class="DefaultCell"> Write in symbol "Global_ASWStatus_u8" the following data: 0 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.800755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.784755</td>
+            <td class="NumberCell">137</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.exitWarning_en" the following data: 2 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.817755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=17ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.800755</td>
+            <td class="NumberCell">138</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.rearCrossTrafficAlert_en" the following data: 0 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.817755</td>
+            <td class="NumberCell">139</td>
+            <td class="DefaultCell"> Write in symbol "debounceCounterASWStatus_u16" the following data: 0 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 113.817755</td>
+            <td class="NumberCell">140</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 114.817755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 114.830755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=13ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 114.943755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=113ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 114.830755</td>
+            <td class="NumberCell">141</td>
+            <td class="DefaultCell"> Breakpoint will be set in function WaAstechCust_Main in source line:<br>WaAstechCust_Core_Process()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.321755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=378ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 114.943755</td>
+            <td class="NumberCell">142</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.321755</td>
+            <td class="NumberCell">143</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.321755</td>
+            <td class="NumberCell">144</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.339755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=18ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.339755</td>
+            <td class="NumberCell">145</td>
+            <td class="DefaultCell"> Read out variable "EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.339755</td>
+            <td class="NumberCell">146</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr id="i__-1860796272_2957">
+            <td class="DefineCell"> 115.339755</td>
+            <td class="NumberCell">147</td>
+            <td class="DefaultCell"> Check if variable EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8 == 00000002 (0x2) --&gt; Check not successful, read 00000001 (0x1)</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.369755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=30ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.369755</td>
+            <td class="NumberCell">148</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.exitWarning_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.369755</td>
+            <td class="NumberCell">149</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 2 (0x2) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.369755</td>
+            <td class="NumberCell">150</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.exitWarning_en == 00000002 (0x2) --&gt; Check successful, read 00000002 (0x2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.383755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=14ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.383755</td>
+            <td class="NumberCell">151</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.rearCrossTrafficAlert_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.383755</td>
+            <td class="NumberCell">152</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 0 (0x0) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.383755</td>
+            <td class="NumberCell">153</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.rearCrossTrafficAlert_en == 00000000 (0x0) --&gt; Check successful, read 00000000 (0x0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.398755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.398755</td>
+            <td class="NumberCell">154</td>
+            <td class="DefaultCell"> Read out variable "(Rte_Vda_VehicleData_Data).IgnitionState_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.398755</td>
+            <td class="NumberCell">155</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.398755</td>
+            <td class="NumberCell">156</td>
+            <td class="DefaultCell"> Check if variable (Rte_Vda_VehicleData_Data).IgnitionState_en == 00000001 (0x1) --&gt; Check successful, read 00000001 (0x1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.398755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ReSet software +++</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.449755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=51ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 116.216755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=767ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 115.449755</td>
+            <td class="NumberCell">157</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 116.367755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=151ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 116.216755</td>
+            <td class="NumberCell">158</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 116.367755</td>
+            <td class="NumberCell">159</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 116.367755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 116.367755</td>
+            <td class="NumberCell">160</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 117.367755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 117.367755</td>
+            <td class="NumberCell">161</td>
+            <td class="DefaultCell">Description --- <br>Wait for 2000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 119.367755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=2000ms (max=2000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 120.099755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=732ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 120.099755</td>
+            <td class="NumberCell">162</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 120.099755</td>
+            <td class="NumberCell">163</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 121.099755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 121.191755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=92ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 121.191755</td>
+            <td class="NumberCell">164</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 121.191755</td>
+            <td class="NumberCell">165</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 126.191755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 126.191755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ------------------------------------CASE 2------------------------------------</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 126.191755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 0 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 126.191755</td>
+            <td class="NumberCell">166</td>
+            <td class="DefaultCell">Description --- <br>Wait for 30 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 126.221755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=30ms (max=30ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 126.221755</td>
+            <td class="NumberCell">167</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.221755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.241755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=20ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.500755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=259ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.241755</td>
+            <td class="NumberCell">168</td>
+            <td class="DefaultCell"> Breakpoint will be set in function Frame_Rx_MainUnit_01_FD_02_Process in source line:<br>CodingData_pst = WaAstechCust_GetCodingData()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.500755</td>
+            <td class="NumberCell">169</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.500755</td>
+            <td class="NumberCell">170</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.528755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=28ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.544755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.528755</td>
+            <td class="NumberCell">171</td>
+            <td class="DefaultCell"> Write in symbol "Global_ASWStatus_u8" the following data: 1 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.561755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=17ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.544755</td>
+            <td class="NumberCell">172</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.exitWarning_en" the following data: 0 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.591755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=30ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.561755</td>
+            <td class="NumberCell">173</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.rearCrossTrafficAlert_en" the following data: 2 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.591755</td>
+            <td class="NumberCell">174</td>
+            <td class="DefaultCell"> Write in symbol "debounceCounterASWStatus_u16" the following data: 300 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 131.591755</td>
+            <td class="NumberCell">175</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.591755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.613755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=22ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.721755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=108ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.613755</td>
+            <td class="NumberCell">176</td>
+            <td class="DefaultCell"> Breakpoint will be set in function WaAstechCust_Main in source line:<br>WaAstechCust_Core_Process()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.953755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=232ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.721755</td>
+            <td class="NumberCell">177</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.953755</td>
+            <td class="NumberCell">178</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.953755</td>
+            <td class="NumberCell">179</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.980755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=27ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.980755</td>
+            <td class="NumberCell">180</td>
+            <td class="DefaultCell"> Read out variable "EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.980755</td>
+            <td class="NumberCell">181</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr id="i__-1860796272_3597">
+            <td class="DefineCell"> 132.980755</td>
+            <td class="NumberCell">182</td>
+            <td class="DefaultCell"> Check if variable EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8 == 00000002 (0x2) --&gt; Check not successful, read 00000001 (0x1)</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.997755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=17ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.997755</td>
+            <td class="NumberCell">183</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.exitWarning_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.997755</td>
+            <td class="NumberCell">184</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 0 (0x0) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 132.997755</td>
+            <td class="NumberCell">185</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.exitWarning_en == 00000000 (0x0) --&gt; Check successful, read 00000000 (0x0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.011755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=14ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.011755</td>
+            <td class="NumberCell">186</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.rearCrossTrafficAlert_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.011755</td>
+            <td class="NumberCell">187</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 2 (0x2) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.011755</td>
+            <td class="NumberCell">188</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.rearCrossTrafficAlert_en == 00000002 (0x2) --&gt; Check successful, read 00000002 (0x2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.026755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.026755</td>
+            <td class="NumberCell">189</td>
+            <td class="DefaultCell"> Read out variable "(Rte_Vda_VehicleData_Data).IgnitionState_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.026755</td>
+            <td class="NumberCell">190</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 0 (0x0) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.026755</td>
+            <td class="NumberCell">191</td>
+            <td class="DefaultCell"> Check if variable (Rte_Vda_VehicleData_Data).IgnitionState_en == 00000000 (0x0) --&gt; Check successful, read 00000000 (0x0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.026755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ReSet software +++</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.078755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=52ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.860755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=782ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.078755</td>
+            <td class="NumberCell">192</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 134.008755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=148ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 133.860755</td>
+            <td class="NumberCell">193</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 134.008755</td>
+            <td class="NumberCell">194</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 134.008755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 134.008755</td>
+            <td class="NumberCell">195</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 135.008755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 135.008755</td>
+            <td class="NumberCell">196</td>
+            <td class="DefaultCell">Description --- <br>Wait for 2000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 137.008755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=2000ms (max=2000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 137.729755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=721ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 137.729755</td>
+            <td class="NumberCell">197</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 137.729755</td>
+            <td class="NumberCell">198</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 138.729755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 138.826755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=97ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 138.826755</td>
+            <td class="NumberCell">199</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 138.826755</td>
+            <td class="NumberCell">200</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 143.826755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 143.826755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ------------------------------------CASE 3------------------------------------</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 143.826755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 143.826755</td>
+            <td class="NumberCell">201</td>
+            <td class="DefaultCell">Description --- <br>Wait for 30 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 143.856755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=30ms (max=30ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 143.856755</td>
+            <td class="NumberCell">202</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 148.856755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 148.879755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=23ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.141755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=262ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 148.879755</td>
+            <td class="NumberCell">203</td>
+            <td class="DefaultCell"> Breakpoint will be set in function Frame_Rx_MainUnit_01_FD_02_Process in source line:<br>CodingData_pst = WaAstechCust_GetCodingData()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.141755</td>
+            <td class="NumberCell">204</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.141755</td>
+            <td class="NumberCell">205</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.169755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=28ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.199755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=30ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.169755</td>
+            <td class="NumberCell">206</td>
+            <td class="DefaultCell"> Write in symbol "Global_ASWStatus_u8" the following data: 1 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.228755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=29ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.199755</td>
+            <td class="NumberCell">207</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.exitWarning_en" the following data: 2 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.244755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.228755</td>
+            <td class="NumberCell">208</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.rearCrossTrafficAlert_en" the following data: 2 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.244755</td>
+            <td class="NumberCell">209</td>
+            <td class="DefaultCell"> Write in symbol "debounceCounterASWStatus_u16" the following data: 300 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 149.244755</td>
+            <td class="NumberCell">210</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.244755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.260755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.370755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=110ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.260755</td>
+            <td class="NumberCell">211</td>
+            <td class="DefaultCell"> Breakpoint will be set in function WaAstechCust_Main in source line:<br>WaAstechCust_Core_Process()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.599755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=229ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.370755</td>
+            <td class="NumberCell">212</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.599755</td>
+            <td class="NumberCell">213</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.599755</td>
+            <td class="NumberCell">214</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.628755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=29ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.628755</td>
+            <td class="NumberCell">215</td>
+            <td class="DefaultCell"> Read out variable "EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.628755</td>
+            <td class="NumberCell">216</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.628755</td>
+            <td class="NumberCell">217</td>
+            <td class="DefaultCell"> Check if variable EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8 == 00000001 (0x1) --&gt; Check successful, read 00000001 (0x1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.645755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=17ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.645755</td>
+            <td class="NumberCell">218</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.exitWarning_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.645755</td>
+            <td class="NumberCell">219</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 2 (0x2) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.645755</td>
+            <td class="NumberCell">220</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.exitWarning_en == 00000002 (0x2) --&gt; Check successful, read 00000002 (0x2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.662755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=17ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.662755</td>
+            <td class="NumberCell">221</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.rearCrossTrafficAlert_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.662755</td>
+            <td class="NumberCell">222</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 2 (0x2) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.662755</td>
+            <td class="NumberCell">223</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.rearCrossTrafficAlert_en == 00000002 (0x2) --&gt; Check successful, read 00000002 (0x2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.691755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=29ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.691755</td>
+            <td class="NumberCell">224</td>
+            <td class="DefaultCell"> Read out variable "(Rte_Vda_VehicleData_Data).IgnitionState_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.691755</td>
+            <td class="NumberCell">225</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.691755</td>
+            <td class="NumberCell">226</td>
+            <td class="DefaultCell"> Check if variable (Rte_Vda_VehicleData_Data).IgnitionState_en == 00000001 (0x1) --&gt; Check successful, read 00000001 (0x1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.691755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ReSet software +++</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.741755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=50ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 151.508755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=767ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 150.741755</td>
+            <td class="NumberCell">227</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 151.657755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=149ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 151.508755</td>
+            <td class="NumberCell">228</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 151.657755</td>
+            <td class="NumberCell">229</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 151.657755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 151.657755</td>
+            <td class="NumberCell">230</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 152.657755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 152.657755</td>
+            <td class="NumberCell">231</td>
+            <td class="DefaultCell">Description --- <br>Wait for 2000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 154.657755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=2000ms (max=2000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 155.382755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=725ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 155.382755</td>
+            <td class="NumberCell">232</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 155.382755</td>
+            <td class="NumberCell">233</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 156.382755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 156.484755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=102ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 156.484755</td>
+            <td class="NumberCell">234</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 156.484755</td>
+            <td class="NumberCell">235</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 161.484755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 161.484755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ------------------------------------CASE 4------------------------------------</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 161.484755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 0 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 161.484755</td>
+            <td class="NumberCell">236</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1500 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 162.984755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1500ms (max=1500ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.001755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=17ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.645755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=644ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.001755</td>
+            <td class="NumberCell">237</td>
+            <td class="DefaultCell"> Breakpoint will be set in function Frame_Rx_MainUnit_01_FD_02_Process in source line:<br>CodingData_pst = WaAstechCust_GetCodingData()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.645755</td>
+            <td class="NumberCell">238</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.645755</td>
+            <td class="NumberCell">239</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.674755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=29ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.705755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=31ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.674755</td>
+            <td class="NumberCell">240</td>
+            <td class="DefaultCell"> Write in symbol "Global_ASWStatus_u8" the following data: 1 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.735755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=30ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.705755</td>
+            <td class="NumberCell">241</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.exitWarning_en" the following data: 0 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.749755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=14ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.735755</td>
+            <td class="NumberCell">242</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.rearCrossTrafficAlert_en" the following data: 2 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.749755</td>
+            <td class="NumberCell">243</td>
+            <td class="DefaultCell"> Write in symbol "debounceCounterASWStatus_u16" the following data: 100 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 163.749755</td>
+            <td class="NumberCell">244</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 164.749755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 164.749755</td>
+            <td class="NumberCell">245</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.749755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.765755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.765755</td>
+            <td class="NumberCell">246</td>
+            <td class="DefaultCell"> Read out variable "EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.765755</td>
+            <td class="NumberCell">247</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.765755</td>
+            <td class="NumberCell">248</td>
+            <td class="DefaultCell"> Check if variable EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8 == 00000001 (0x1) --&gt; Check successful, read 00000001 (0x1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.792755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=27ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.792755</td>
+            <td class="NumberCell">249</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.exitWarning_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.792755</td>
+            <td class="NumberCell">250</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 0 (0x0) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.792755</td>
+            <td class="NumberCell">251</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.exitWarning_en == 00000000 (0x0) --&gt; Check successful, read 00000000 (0x0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.808755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.808755</td>
+            <td class="NumberCell">252</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.rearCrossTrafficAlert_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.808755</td>
+            <td class="NumberCell">253</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 2 (0x2) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.808755</td>
+            <td class="NumberCell">254</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.rearCrossTrafficAlert_en == 00000002 (0x2) --&gt; Check successful, read 00000002 (0x2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.808755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ReSet software +++</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.857755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=49ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 170.687755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=830ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 169.857755</td>
+            <td class="NumberCell">255</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 170.835755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=148ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 170.687755</td>
+            <td class="NumberCell">256</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 170.835755</td>
+            <td class="NumberCell">257</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 170.835755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 170.835755</td>
+            <td class="NumberCell">258</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 171.835755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 171.835755</td>
+            <td class="NumberCell">259</td>
+            <td class="DefaultCell">Description --- <br>Wait for 2000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 173.835755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=2000ms (max=2000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 174.560755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=725ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 174.560755</td>
+            <td class="NumberCell">260</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 174.560755</td>
+            <td class="NumberCell">261</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 175.560755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 175.648755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=88ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 175.648755</td>
+            <td class="NumberCell">262</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 175.648755</td>
+            <td class="NumberCell">263</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 180.648755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 180.648755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ------------------------------------CASE 5------------------------------------</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 180.648755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 180.648755</td>
+            <td class="NumberCell">264</td>
+            <td class="DefaultCell">Description --- <br>Wait for 30 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 180.678755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=30ms (max=30ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 180.678755</td>
+            <td class="NumberCell">265</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 185.678755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 185.691755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=13ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.058755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=367ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 185.691755</td>
+            <td class="NumberCell">266</td>
+            <td class="DefaultCell"> Breakpoint will be set in function Frame_Rx_MainUnit_01_FD_02_Process in source line:<br>CodingData_pst = WaAstechCust_GetCodingData()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.058755</td>
+            <td class="NumberCell">267</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.058755</td>
+            <td class="NumberCell">268</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.088755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=30ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.117755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=29ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.088755</td>
+            <td class="NumberCell">269</td>
+            <td class="DefaultCell"> Write in symbol "Global_ASWStatus_u8" the following data: 1 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.133755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.117755</td>
+            <td class="NumberCell">270</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.exitWarning_en" the following data: 0 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.148755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.133755</td>
+            <td class="NumberCell">271</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.rearCrossTrafficAlert_en" the following data: 0 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.148755</td>
+            <td class="NumberCell">272</td>
+            <td class="DefaultCell"> Write in symbol "debounceCounterASWStatus_u16" the following data: 300 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 186.148755</td>
+            <td class="NumberCell">273</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.148755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.166755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=18ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.275755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=109ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.166755</td>
+            <td class="NumberCell">274</td>
+            <td class="DefaultCell"> Breakpoint will be set in function WaAstechCust_Main in source line:<br>WaAstechCust_Core_Process()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.501755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=226ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.275755</td>
+            <td class="NumberCell">275</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.501755</td>
+            <td class="NumberCell">276</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.501755</td>
+            <td class="NumberCell">277</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.516755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.516755</td>
+            <td class="NumberCell">278</td>
+            <td class="DefaultCell"> Read out variable "EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.516755</td>
+            <td class="NumberCell">279</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.516755</td>
+            <td class="NumberCell">280</td>
+            <td class="DefaultCell"> Check if variable EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8 == 00000001 (0x1) --&gt; Check successful, read 00000001 (0x1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.530755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=14ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.530755</td>
+            <td class="NumberCell">281</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.exitWarning_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.530755</td>
+            <td class="NumberCell">282</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 0 (0x0) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.530755</td>
+            <td class="NumberCell">283</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.exitWarning_en == 00000000 (0x0) --&gt; Check successful, read 00000000 (0x0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.547755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=17ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.547755</td>
+            <td class="NumberCell">284</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.rearCrossTrafficAlert_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.547755</td>
+            <td class="NumberCell">285</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 0 (0x0) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.547755</td>
+            <td class="NumberCell">286</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.rearCrossTrafficAlert_en == 00000000 (0x0) --&gt; Check successful, read 00000000 (0x0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.560755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=13ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.560755</td>
+            <td class="NumberCell">287</td>
+            <td class="DefaultCell"> Read out variable "(Rte_Vda_VehicleData_Data).IgnitionState_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.560755</td>
+            <td class="NumberCell">288</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.560755</td>
+            <td class="NumberCell">289</td>
+            <td class="DefaultCell"> Check if variable (Rte_Vda_VehicleData_Data).IgnitionState_en == 00000001 (0x1) --&gt; Check successful, read 00000001 (0x1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.560755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ReSet software +++</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.610755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=50ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 188.379755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=769ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 187.610755</td>
+            <td class="NumberCell">290</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 188.527755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=148ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 188.379755</td>
+            <td class="NumberCell">291</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 188.527755</td>
+            <td class="NumberCell">292</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 188.527755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 188.527755</td>
+            <td class="NumberCell">293</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 189.527755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 189.527755</td>
+            <td class="NumberCell">294</td>
+            <td class="DefaultCell">Description --- <br>Wait for 2000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 191.527755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=2000ms (max=2000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 192.306755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=779ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 192.306755</td>
+            <td class="NumberCell">295</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 192.306755</td>
+            <td class="NumberCell">296</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 193.306755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 193.395755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=89ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 193.395755</td>
+            <td class="NumberCell">297</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 193.395755</td>
+            <td class="NumberCell">298</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 198.395755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 198.395755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ------------------------------------CASE 6------------------------------------</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 198.395755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 0 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 198.395755</td>
+            <td class="NumberCell">299</td>
+            <td class="DefaultCell">Description --- <br>Wait for 30 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 198.425755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=30ms (max=30ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 198.425755</td>
+            <td class="NumberCell">300</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.425755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.440755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.700755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=260ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.440755</td>
+            <td class="NumberCell">301</td>
+            <td class="DefaultCell"> Breakpoint will be set in function Frame_Rx_MainUnit_01_FD_02_Process in source line:<br>CodingData_pst = WaAstechCust_GetCodingData()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.700755</td>
+            <td class="NumberCell">302</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.700755</td>
+            <td class="NumberCell">303</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.730755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=30ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.745755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.730755</td>
+            <td class="NumberCell">304</td>
+            <td class="DefaultCell"> Write in symbol "Global_ASWStatus_u8" the following data: 0 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.760755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.745755</td>
+            <td class="NumberCell">305</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.exitWarning_en" the following data: 2 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.776755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.760755</td>
+            <td class="NumberCell">306</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.rearCrossTrafficAlert_en" the following data: 2 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.776755</td>
+            <td class="NumberCell">307</td>
+            <td class="DefaultCell"> Write in symbol "debounceCounterASWStatus_u16" the following data: 300 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 203.776755</td>
+            <td class="NumberCell">308</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 204.776755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 204.792755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 204.901755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=109ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 204.792755</td>
+            <td class="NumberCell">309</td>
+            <td class="DefaultCell"> Breakpoint will be set in function WaAstechCust_Main in source line:<br>WaAstechCust_Core_Process()</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.240755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=339ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 204.901755</td>
+            <td class="NumberCell">310</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.240755</td>
+            <td class="NumberCell">311</td>
+            <td class="DefaultCell"> Wait for Target is halted</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.240755</td>
+            <td class="NumberCell">312</td>
+            <td class="DefaultCell"> Check if target is halted. </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.254755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=14ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.254755</td>
+            <td class="NumberCell">313</td>
+            <td class="DefaultCell"> Read out variable "EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.254755</td>
+            <td class="NumberCell">314</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.254755</td>
+            <td class="NumberCell">315</td>
+            <td class="DefaultCell"> Check if variable EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8 == 00000001 (0x1) --&gt; Check successful, read 00000001 (0x1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.270755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.270755</td>
+            <td class="NumberCell">316</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.exitWarning_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.270755</td>
+            <td class="NumberCell">317</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 2 (0x2) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.270755</td>
+            <td class="NumberCell">318</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.exitWarning_en == 00000002 (0x2) --&gt; Check successful, read 00000002 (0x2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.285755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.285755</td>
+            <td class="NumberCell">319</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.rearCrossTrafficAlert_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.285755</td>
+            <td class="NumberCell">320</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 2 (0x2) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.285755</td>
+            <td class="NumberCell">321</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.rearCrossTrafficAlert_en == 00000002 (0x2) --&gt; Check successful, read 00000002 (0x2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.301755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.301755</td>
+            <td class="NumberCell">322</td>
+            <td class="DefaultCell"> Read out variable "(Rte_Vda_VehicleData_Data).IgnitionState_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.301755</td>
+            <td class="NumberCell">323</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 0 (0x0) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.301755</td>
+            <td class="NumberCell">324</td>
+            <td class="DefaultCell"> Check if variable (Rte_Vda_VehicleData_Data).IgnitionState_en == 00000000 (0x0) --&gt; Check successful, read 00000000 (0x0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.301755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ReSet software +++</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.364755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=63ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 206.117755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=753ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 205.364755</td>
+            <td class="NumberCell">325</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 206.266755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=149ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 206.117755</td>
+            <td class="NumberCell">326</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 206.266755</td>
+            <td class="NumberCell">327</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 206.266755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 206.266755</td>
+            <td class="NumberCell">328</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 207.266755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 207.266755</td>
+            <td class="NumberCell">329</td>
+            <td class="DefaultCell">Description --- <br>Wait for 2000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 209.266755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=2000ms (max=2000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 209.984755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=718ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 209.984755</td>
+            <td class="NumberCell">330</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 209.984755</td>
+            <td class="NumberCell">331</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 210.984755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 211.076755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=92ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 211.076755</td>
+            <td class="NumberCell">332</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 211.076755</td>
+            <td class="NumberCell">333</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 216.076755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 216.076755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ------------------------------------CASE 7------------------------------------</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 216.112755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=36ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 216.838755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=726ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 216.112755</td>
+            <td class="NumberCell">334</td>
+            <td class="DefaultCell"> Breakpoint will be set in function Rte_Write_SensorId_SensorId_SensorId in source line:<br>(void)ReleaseSpinlock(Rte_Spinlock_SensorId_SensorId_SensorId)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 216.934755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=96ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 216.838755</td>
+            <td class="NumberCell">335</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 216.934755</td>
+            <td class="NumberCell">336</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 216.934755</td>
+            <td class="NumberCell">337</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 221.934755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 221.951755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=17ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 221.951755</td>
+            <td class="NumberCell">338</td>
+            <td class="DefaultCell"> Write in symbol "Rte_SensorId_SensorId_SensorId" the following data: 0 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 221.951755</td>
+            <td class="NumberCell">339</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 222.951755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 222.996755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=45ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 223.102755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=106ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 222.996755</td>
+            <td class="NumberCell">340</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 223.102755</td>
+            <td class="NumberCell">341</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 223.102755</td>
+            <td class="NumberCell">342</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 228.102755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 228.102755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 228.102755</td>
+            <td class="NumberCell">343</td>
+            <td class="DefaultCell">Description --- <br>Wait for 30 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 228.132755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=30ms (max=30ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 228.146755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=14ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 228.164755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=18ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 228.146755</td>
+            <td class="NumberCell">344</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.exitWarning_en" the following data: 2 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 228.164755</td>
+            <td class="NumberCell">345</td>
+            <td class="DefaultCell"> Write in symbol "CodingData_st.rearCrossTrafficAlert_en" the following data: 2 (0x0)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 228.164755</td>
+            <td class="NumberCell">346</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5080 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.244755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5080ms (max=5080ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.256755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=12ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.256755</td>
+            <td class="NumberCell">347</td>
+            <td class="DefaultCell"> Read out variable "EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.256755</td>
+            <td class="NumberCell">348</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 1 (0x1) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.256755</td>
+            <td class="NumberCell">349</td>
+            <td class="DefaultCell"> Check if variable EventMdw_ErrorResult_ast[EVHND_EVENT_VDA_MAIN_UNIT_01_FASCANFD2_LOST_COMM].testResultRaw_u8 == 00000001 (0x1) --&gt; Check successful, read 00000001 (0x1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.287755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=31ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.287755</td>
+            <td class="NumberCell">350</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.exitWarning_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.287755</td>
+            <td class="NumberCell">351</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 2 (0x2) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.287755</td>
+            <td class="NumberCell">352</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.exitWarning_en == 00000002 (0x2) --&gt; Check successful, read 00000002 (0x2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.316755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=29ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.316755</td>
+            <td class="NumberCell">353</td>
+            <td class="DefaultCell"> Read out variable "CodingData_st.rearCrossTrafficAlert_en"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.316755</td>
+            <td class="NumberCell">354</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 2 (0x2) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.316755</td>
+            <td class="NumberCell">355</td>
+            <td class="DefaultCell"> Check if variable CodingData_st.rearCrossTrafficAlert_en == 00000002 (0x2) --&gt; Check successful, read 00000002 (0x2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.332755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.332755</td>
+            <td class="NumberCell">356</td>
+            <td class="DefaultCell"> Read out variable "Rte_SensorId_SensorId_SensorId"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.332755</td>
+            <td class="NumberCell">357</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 00000000 (0x0) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.332755</td>
+            <td class="NumberCell">358</td>
+            <td class="DefaultCell"> Check if variable Rte_SensorId_SensorId_SensorId != 1 (0x1) --&gt; Check successful, read 0 (0x0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.348755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=16ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.348755</td>
+            <td class="NumberCell">359</td>
+            <td class="DefaultCell"> Read out variable "Rte_SensorId_SensorId_SensorId"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.348755</td>
+            <td class="NumberCell">360</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 00000000 (0x0) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.348755</td>
+            <td class="NumberCell">361</td>
+            <td class="DefaultCell"> Check if variable Rte_SensorId_SensorId_SensorId != 9 (0x9) --&gt; Check successful, read 0 (0x0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.363755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=15ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.363755</td>
+            <td class="NumberCell">362</td>
+            <td class="DefaultCell"> Read out variable "Global_ASWStatus_u8"</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.363755</td>
+            <td class="NumberCell">363</td>
+            <td class="DefaultCell">Description --- <br>
+              <br>Value 00000003 (0x3) was received</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.363755</td>
+            <td class="NumberCell">364</td>
+            <td class="DefaultCell"> Check if variable Global_ASWStatus_u8 != 1 (0x1) --&gt; Check successful, read 3 (0x3)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.363755</td>
+            <td class="NumberCell">+++</td>
+            <td class="DefaultCell">+++ SECTION: ReSet software +++</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.409755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=46ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 234.135755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=726ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 233.409755</td>
+            <td class="NumberCell">365</td>
+            <td class="DefaultCell"> Delete all breakpoints</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 234.245755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=110ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 234.135755</td>
+            <td class="NumberCell">366</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 234.245755</td>
+            <td class="NumberCell">367</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 234.245755</td>
+            <td class="NumberCell">Set signal value</td>
+            <td class="DefaultCell">Signal: 'Signal:CAN2/FASCANFD2/Klemmen_Status_01_XIX_FASCANFD2/ZAS_Kl_15_XIX_Klemmen_Status_01_XIX_FASCANFD2'.  Value: 1 </td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 234.245755</td>
+            <td class="NumberCell">368</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 235.245755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 235.245755</td>
+            <td class="NumberCell">369</td>
+            <td class="DefaultCell">Description --- <br>Wait for 2000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 237.245755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=2000ms (max=2000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 237.963755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=718ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 237.963755</td>
+            <td class="NumberCell">370</td>
+            <td class="DefaultCell"> Reset the microcontroller</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 237.963755</td>
+            <td class="NumberCell">371</td>
+            <td class="DefaultCell">Description --- <br>Wait for 1000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 238.963755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=1000ms (max=1000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 239.054755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Resumed on TextEvent 'Command executed' Elapsed time=91ms (max=120000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 239.054755</td>
+            <td class="NumberCell">372</td>
+            <td class="DefaultCell"> Run the Target</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 239.054755</td>
+            <td class="NumberCell">373</td>
+            <td class="DefaultCell">Description --- <br>Wait for 5000 ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell"> 244.054755</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=5000ms (max=5000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd>
+        <html>
+            <body>
+                <table class="SubHeadingTable">
+                    <tr>
+                        <td>
+                        <div class="Heading2">End of Report</div>
+                        </td>
+                    </tr>
+                </table>
+            </body>
+        </html>
+                    
