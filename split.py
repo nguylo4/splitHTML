@@ -50,7 +50,7 @@ def extract_test_case_name(file_content):
 def read_file_content(file_path):
     if os.path.isfile(file_path):
         with open(file_path, 'r') as file:
-            return file.read()
+            return file.read() 
     return None
 
 def open_output_folder():
@@ -300,4 +300,5 @@ failed_files_label.grid(row=3, column=1, padx=5, pady=5, sticky="we")
 failed_files_listbox = tk.Listbox(root, width=50)
 failed_files_listbox.grid(row=4, column=1, padx=5, pady=5)
 
+# main run
 root.mainloop()
