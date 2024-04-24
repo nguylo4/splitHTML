@@ -299,4 +299,5 @@ failed_files_label.grid(row=3, column=1, padx=5, pady=5, sticky="we")
 failed_files_listbox = tk.Listbox(root, width=50)
 failed_files_listbox.grid(row=4, column=1, padx=5, pady=5)
 
+# main function
 root.mainloop()
